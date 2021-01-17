@@ -1,0 +1,148 @@
+@import "../../../custom-theme.scss";
+
+:host {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.mat-card.wasHelpful {
+    margin: 0px;
+    padding: 10px 40px 10px 20px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2) !important;
+    border-radius: 0px !important;
+}
+
+.feedbackSection {
+    display: flex;
+}
+
+.mat-card.wasHelpful.improvement {
+    flex: 1;
+    padding-left: 40px;
+    padding-right: 320px;
+    display: flex;
+    align-items: center;
+}
+
+.helpfulRow{ 
+    display: flex;
+    align-items: center;
+}
+
+.helpfulText{
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.ratingRadio {
+    flex: 1;
+}
+
+.ratingRadio .mat-radio-button::ng-deep .mat-radio-label-content {
+    padding-left: 0;
+    align-items: center;
+    display: flex;
+}
+
+.ratingRadio .mat-radio-button::ng-deep .mat-radio-label-content .thumbText {
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.ratingRadio .mat-radio-button::ng-deep .mat-radio-label-content .thumbText.yes {
+    color: #149ad9;
+}
+
+.ratingRadio .mat-radio-button::ng-deep .mat-radio-label-content .thumbText.no {
+    color: #e94053;
+}
+
+.ratingRadio .mat-radio-button::ng-deep .mat-radio-label-content img {
+    width: 30px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    border-radius: 50%;
+    vertical-align: top;
+}
+
+.ratingRadio .mat-radio-button::ng-deep .mat-radio-container {
+    display: none;
+}
+
+.ratingRadio .mat-radio-button.mat-radio-checked::ng-deep .mat-radio-label-content .thumbText {
+    color: $accent;
+}
+.ratingRadio .mat-radio-button.mat-radio-checked::ng-deep .mat-radio-label-content img {
+    border: 1px solid $accent;
+    padding: 1px;
+    // box-sizing: content-box;
+}
+
+.ratingRadio .mat-radio-button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.commentArea {
+    display: flex;
+    padding-top: 16px;
+    padding-bottom: 5px;
+    font-size: 13px;
+    align-items: center;
+}
+
+.field {
+    flex: 1;  
+    margin-right: 15px;
+}
+
+.field .mat-form-field {
+    display: block;
+}
+
+.field .mat-form-field.mat-form-field-appearance-outline::ng-deep .mat-form-field-wrapper {
+    padding: 0;
+    margin: 0;
+}
+
+@media screen and (max-width: 1160px) {
+    .mat-card.wasHelpful {
+        padding-right: 20px;
+    }
+    .mat-card.wasHelpful.improvement {
+        padding-left: 20px;
+        padding-right: 320px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .feedbackSection {
+        flex-direction: column;
+    }
+    .mat-card.wasHelpful, .mat-card.wasHelpful.improvement {
+        padding-right: 280px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .mat-card.wasHelpful, .mat-card.wasHelpful.improvement {
+        padding-right: 230px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .mat-card.wasHelpful, .mat-card.wasHelpful.improvement {
+        padding-right: 10px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .helpfulText { font-size: 12px; }
+    .mat-card.wasHelpful.improvement::ng-deep .mat-checkbox-layout .mat-checkbox-label {
+        white-space: pre-wrap;
+        font-size: 12px;
+        line-height: 18px;
+    }
+}

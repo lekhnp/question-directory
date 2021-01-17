@@ -1,0 +1,23 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="logo">
+            <img (click)="goBackToHome()" src="assets/images/ps-logo.svg" alt="Pure Software Logo">
+        </div>
+        <span class="spacer"></span>
+        <!-- <button *ngIf="userData.role == 'admin'" mat-raised-button (click)="createQuestion()" color="primary" aria-label="Notification Button">
+            New Questions
+        </button> -->
+        <button *ngIf="user.role == 'admin'" routerLink="/analytics" matTooltip="Analytics & Reports" class="marginLeft10 headerButton" mat-icon-button color="warn" aria-label="Analytics & Reports Button">
+            <mat-icon>assessment</mat-icon>
+        </button>
+        <button matTooltip="Logout" class="marginLeft10 headerButton" mat-icon-button color="warn" aria-label="Logout Button" (click)="logout()">
+            <mat-icon>power_settings_new</mat-icon>
+        </button>
+        <button class="marginLeft10  headerButton" mat-icon-button color="warn" aria-label="Menu Button" (click)="showMostViewed()">
+            <mat-icon>menu_open</mat-icon>
+        </button>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="numberOfQA" *ngIf="questionCount" [@boxAnimation]>
+        Number of available Q&A  are {{questionCount}}
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,18 @@
+<mat-card class="workspace-card">
+    <mat-card-header>
+        <mat-card-title>Category Wise Feedback Trend</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <div class="content-card padding20">
+        <div class="chart">
+            <canvas baseChart
+                [datasets]="data"
+                [labels]="labels"
+                [chartType]="type"
+                [options]="options"
+                [legend]="legend"
+                [plugins]="plugins">
+            </canvas>
+        </div>
+    </div>
+</mat-card>

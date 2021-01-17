@@ -1,0 +1,459 @@
+@import "../../../custom-theme.scss";
+
+.emptyCard {
+    margin: 5px 7px 20px;
+}
+
+.emptyCard .mat-card {
+    padding: 16px;
+    margin: 0;
+}
+
+.emptyText {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgba(0,0,0,0.85);
+}
+
+.emptyText strong {
+    font-weight: 700;
+    color: rgba(0,0,0,1);
+}
+
+.workspace-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.workspace-column {
+    flex: 50%;
+    display: flex;
+}
+
+
+.quick-action-card {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2) !important;
+    border-radius: 4px !important;
+    margin: 0 7px 15px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.quick-action-card {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.quick-action-card:not(.noHover):hover {
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3) !important;
+    transform: scale(1.02);
+}
+
+.sub-menu-list {
+    margin: 0;
+    padding: 0;
+}
+
+.sub-menu-list .mat-list-item {
+    height: auto !important;
+    padding: 0px;
+}
+
+.sub-menu-list.mat-list-base::ng-deep .mat-list-item .mat-list-item-content {
+    padding: 0 ;
+}
+
+.sub-menu-title {
+    color: $primary;
+    font-size: 15px !important;
+    padding-bottom: 5px !important;
+    white-space: normal !important;
+    text-overflow: unset !important;
+    line-height: 20px !important;
+}
+
+.sub-menu-description {
+    font-size: 12px !important;
+    opacity: 0.7 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    line-height: 18px;
+}
+
+.searchForm {
+    margin: 0 7px 0px;
+    display: flex;
+    flex: 1;
+}
+
+.searchForm .mat-form-field.searchField {
+    flex: 1;
+    margin-left: 2px;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-outline {
+    background: #ffffff;
+    border-radius: 100px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+    height: 46px;
+}
+
+.searchForm .mat-form-field.selectCategory {
+    width: 180px;
+}
+
+.searchForm .mat-form-field.selectCategory::ng-deep .mat-select-value {
+    position: relative;
+    top: -12px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.searchForm .mat-form-field.selectCategory::ng-deep .mat-select-arrow-wrapper {
+    position: relative;
+    top: -8px;
+}
+
+.searchForm .mat-form-field.searchField::ng-deep .mat-form-field-outline {
+    border-radius: 0px 100px 100px 0px;
+}
+
+.searchForm .mat-form-field.selectCategory::ng-deep .mat-form-field-outline {
+    border-radius: 100px 0px 0px 100px;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-wrapper {
+    padding: 0;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-outline .mat-form-field-outline-start,
+.searchForm .mat-form-field::ng-deep .mat-form-field-outline .mat-form-field-outline-gap,
+.searchForm .mat-form-field::ng-deep .mat-form-field-outline .mat-form-field-outline-end {
+    border: 0;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-label {
+    padding-left: 20px;
+}
+
+.searchForm .mat-form-field::ng-deep input.mat-input-element {
+    padding-left: 10px;
+    position: relative;
+    top: -12px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-suffix .mat-icon {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 26px;
+    color: $warn-500;
+    cursor: pointer;
+    position: relative;
+    top: -8px;
+}
+
+.didYouMean {
+    padding: 0 7px 15px;
+    color: $accent;
+    font-size: 15px;
+}
+
+.didYouMean a {
+    cursor: pointer;
+    color: $warn-500;
+    font-weight: 600;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.breadcrumbs {
+    vertical-align: middle;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    
+    border: 1px dotted #C8C8C8;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 10px;
+}
+
+.bdNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.iconNav {
+    cursor: pointer;
+}
+
+.linkNav {
+    cursor: pointer;
+    text-decoration: none;
+    color: $warn-500;  
+}
+
+.linkDivider {
+    color: #bbbbbb;
+    font-size: 16px;
+    height: 16px;
+    width: 16px;
+    margin: 0 3px;
+}
+
+.navContainer {
+    display: flex;
+    padding: 0px 7px 15px;
+}
+
+.question-button {
+    margin-left: 16px;
+}
+
+.question-button button {
+    color: #ffffff;
+}
+
+.navContainer .breadcrumbs {
+    flex: 1;
+}
+ 
+.searchContainer {
+    display: flex;
+}
+
+.searchContainer .breadcrumbs {
+    height: 46px;
+    margin: 6px 7px 0 7px;
+}
+
+.trySearching {
+    font-size: 12px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.pagination::ng-deep .ngx-pagination {
+    margin: 0;
+    padding: 0 7px;
+    text-align: right; 
+}
+
+.pagination::ng-deep .ngx-pagination li {
+    vertical-align: top;
+    margin: 5px 0 5px 7px;
+}
+
+.pagination::ng-deep .ngx-pagination li a, 
+.pagination::ng-deep .ngx-pagination .pagination-previous.disabled,
+.pagination::ng-deep .ngx-pagination .pagination-next.disabled,
+.pagination::ng-deep .ngx-pagination .current {
+    width: 36px;
+    height: 36px;
+    background: #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 13px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.16);
+    color: #333333; 
+}
+
+.pagination::ng-deep .ngx-pagination .current {
+    background: $primary;
+    color: #ffffff;
+}
+
+.pagination::ng-deep .ngx-pagination .pagination-previous a, 
+.pagination::ng-deep .ngx-pagination .pagination-next a {
+    background: $accent;
+    color: #ffffff; 
+}
+
+.pagination::ng-deep .ngx-pagination .pagination-previous a, 
+.pagination::ng-deep .ngx-pagination .pagination-previous.disabled,
+.pagination::ng-deep .ngx-pagination .pagination-next a, 
+.pagination::ng-deep .ngx-pagination .pagination-next.disabled { 
+    text-indent: -99999px;
+    position: relative;
+}
+
+.pagination::ng-deep .ngx-pagination .pagination-previous a::before, 
+.pagination::ng-deep .ngx-pagination .pagination-previous.disabled::before,
+.pagination::ng-deep .ngx-pagination .pagination-next a::after, 
+.pagination::ng-deep .ngx-pagination .pagination-next.disabled::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 36px;
+    line-height: 32px;
+    text-align: center;
+    margin: 0;
+    text-indent: 0px;
+    font-size: 17px; 
+}
+
+.pagination::ng-deep .ngx-pagination .pagination-previous.disabled,
+.pagination::ng-deep .ngx-pagination .pagination-next.disabled {
+    background: #cccccc;
+    color: #666666 ;
+}
+
+@media screen and (max-width: 1000px) {
+    .workspace-column {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .searchForm {
+        margin: 0;
+    }
+
+    .searchForm .mat-form-field.selectCategory {
+        width: 140px;
+    }
+
+    .navContainer {
+        padding: 0px 0px 15px;
+    }
+
+    .quick-action-card {
+        padding: 12px;
+        margin: 0 0px 10px;
+    }
+
+    .sub-menu-title {
+        font-size: 14px !important;
+    }
+
+    .sub-menu-description {
+        font-size: 11px !important;
+    }
+
+    .emptyText {
+        font-size: 13px;
+        line-height: 22px;
+    }
+
+    .breadcrumbs {
+        font-size: 9px;
+    }
+
+    .pagination::ng-deep .ngx-pagination {
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .pagination::ng-deep .ngx-pagination li a, 
+    .pagination::ng-deep .ngx-pagination .pagination-previous.disabled,
+    .pagination::ng-deep .ngx-pagination .pagination-next.disabled,
+    .pagination::ng-deep .ngx-pagination .current {
+        font-size: 11px;
+        width: 30px;
+        height: 30px;
+        line-height: 24px;
+    }
+
+    .pagination::ng-deep .ngx-pagination .pagination-previous a::before, 
+    .pagination::ng-deep .ngx-pagination .pagination-previous.disabled::before,
+    .pagination::ng-deep .ngx-pagination .pagination-next a::after, 
+    .pagination::ng-deep .ngx-pagination .pagination-next.disabled::after {
+        width: 30px;
+        line-height: 26px;
+        font-size: 15px; 
+    }
+    
+}
+
+@media screen and (max-width: 440px) {
+    
+    .searchForm .mat-form-field.selectCategory {
+        width: 80px;
+    }
+
+    .searchForm .mat-form-field::ng-deep .mat-form-field-outline {
+        height: 42px;
+    }
+
+    .searchForm .mat-form-field.selectCategory::ng-deep .mat-select-value {
+        top: -16px;
+        padding-left: 2px;
+        font-size: 9px;
+    }
+
+    .searchForm .mat-form-field.selectCategory::ng-deep .mat-select-arrow-wrapper {
+        top: -14px;
+        right: -5px;
+    }
+
+    .searchForm .mat-form-field::ng-deep input.mat-input-element {
+        padding-left: 0px;
+        top: -16px;
+        font-size: 12px;
+    }
+
+    .searchForm .mat-form-field.searchField {
+        min-width: 0;
+    }
+
+    .searchForm .mat-form-field::ng-deep .mat-form-field-suffix .mat-icon {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 20px;
+        top: -13px;
+        right: -2px;
+    }
+
+    .searchForm .mat-form-field-appearance-outline::ng-deep .mat-form-field-infix {
+        padding-bottom: 0;
+    }
+
+    .searchContainer .breadcrumbs {
+        height: 42px;
+        margin: 5px 7px 0 0px;
+        padding: 5px 8px;
+    }
+
+    .searchContainer .breadcrumbs ~ .searchForm {
+        max-width: 85%;
+    }
+
+    .emptyCard {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .emptyText {
+        font-size: 12px;
+        line-height: 20px;
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+    }
+
+    .navContainer {
+        flex-direction: column;
+    }
+
+    .question-button {
+        text-align: right;
+        padding-top: 10px;;
+    }
+
+    .sub-menu-title {
+        font-size: 13px !important;
+    }
+}

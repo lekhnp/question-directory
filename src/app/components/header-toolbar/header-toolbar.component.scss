@@ -1,0 +1,69 @@
+@import "../../../custom-theme.scss";
+
+.mat-toolbar {
+    background: #ffffff;
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+    height: 84px;
+}
+
+.logo {
+    width: 270px;
+}
+
+.logo img {
+    vertical-align: middle;
+    cursor: pointer;
+    outline: 0;
+}
+
+.mat-toolbar-row.numberOfQA {
+    height: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    width: auto;
+    font-size: 10px;
+    border: 1px solid #eeeeee;
+    background: #ffffff;
+    color: $accent;
+    border-radius: 3px;
+    line-height: 24px;
+    padding: 0 7px;
+}
+
+.headerButton {
+    align-self: start;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+    .logo {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .mat-toolbar-row, .mat-toolbar-single-row {
+        height: 60px;
+    }
+
+    .mat-toolbar-row.numberOfQA {
+        position: static;
+        border-radius: 0px;
+        border: 0;
+        border-top: 1px solid #eeeeee;
+        padding: 0 20px;
+        text-align: right;
+        display: block;
+    }
+
+    .headerButton {
+        align-self: center;
+        margin-top: 0px;
+    }
+}

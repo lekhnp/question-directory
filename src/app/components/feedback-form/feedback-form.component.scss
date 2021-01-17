@@ -1,0 +1,85 @@
+@import "../../../custom-theme.scss";
+
+.mat-dialog-title {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+    padding: 10px 20px;
+} 
+.mat-dialog-content {
+    margin:0;
+    padding: 0 20px;
+    font-size: 13px;
+}
+.mat-dialog-actions {
+    margin: 0;
+    padding: 0px 20px 20px;
+}
+
+.mat-dialog-actions .mat-raised-button {
+    color: #ffffff;
+}
+.mat-dialog-actions .mat-raised-button[disabled] {
+    color: rgba(0,0,0,0.26);
+}
+
+.mat-form-field {
+    display: block;
+}
+
+.field {
+    padding: 0 5px 10px;
+    width: 100%;
+    
+}
+
+.workspace-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.workspace-column {
+    flex: 50%;
+    max-width: 50%;
+    display: flex;
+}
+
+.experianceTxt {
+    padding-top: 10px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 24px;
+    color: $accent;
+}
+
+.ratingRadio {
+    padding: 0px 0 20px;
+    text-align: center;
+    min-height: 75px;
+}
+
+.ratingRadio .mat-radio-button::ng-deep .mat-radio-label-content {
+    padding-left: 0;
+}
+
+.ratingRadio .mat-radio-button::ng-deep .mat-radio-label-content img {
+    width: 65px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    border-radius: 50%;
+}
+
+.ratingRadio .mat-radio-button::ng-deep .mat-radio-container {
+    display: none;
+}
+
+.ratingRadio .mat-radio-button.mat-radio-checked::ng-deep .mat-radio-label-content img {
+    border: 2px solid $accent;
+    padding: 1px;
+    // box-sizing: content-box;
+}
+
+.ratingRadio .mat-radio-button {
+    margin-left: 10px;
+    margin-right: 10px;
+}

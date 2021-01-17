@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-sidenav-container>
+  <mat-sidenav position="end" [mode]="mobileQuery.matches ? 'over' : 'side'" #sidenav [(opened)]="isSidenavOpen">
+      <app-most-viewed-sidebar *ngIf="sharedData.viewState"></app-most-viewed-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+      <div class="main-container">
+          <app-header-toolbar *ngIf="sharedData.viewState" [isMobile]="mobileQuery.matches" (toggleMenu)="toggleSidebar($event)"></app-header-toolbar>
+          <div class="content-container" [@routeAnimations]="prepareRoute(outlet)">
+              <div class="inner-content" [class.padding0]="!sharedData.viewState">
+                  <router-outlet #outlet="outlet"></router-outlet>
+              </div>
+          </div>
+      </div>
+      <div [hidden]="!loading">
+        <app-loading></app-loading>
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

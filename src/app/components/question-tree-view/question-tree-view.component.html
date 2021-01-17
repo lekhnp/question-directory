@@ -1,0 +1,15 @@
+<div [@slideInOut]>
+    <mat-card class="tree-card" appClickStopPropagation [class.expended]="ques.expended" *ngFor="let ques of treeData" (click)="expend(ques)">
+        <div class="subQuesLine">
+            <div class="subQuesArrow">
+                <mat-icon *ngIf="!ques.expended">keyboard_arrow_right</mat-icon>
+                <mat-icon *ngIf="ques.expended">keyboard_arrow_down</mat-icon>
+            </div>
+            <div class="subQuesText">{{ques.QuestionText}}</div>
+            <div class="loader" *ngIf="ques.loading">
+                <mat-spinner [color]="'accent'"></mat-spinner>
+            </div>
+        </div>
+        <app-question-tree-view *ngIf="ques.expended" [treeData]="ques.RelatedQuestions"></app-question-tree-view>
+    </mat-card>
+</div>

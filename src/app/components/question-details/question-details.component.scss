@@ -1,0 +1,442 @@
+@import "../../../custom-theme.scss";
+
+.detail-container {
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 130px;
+}
+
+.breadcrumbs {
+    vertical-align: middle;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    
+    border: 1px dotted #C8C8C8;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 10px;
+}
+
+.bdNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.iconNav {
+    cursor: pointer;
+}
+
+.linkNav {
+    cursor: pointer;
+    text-decoration: none;
+    color: $warn-500;
+}
+
+.linkDivider {
+    color: #bbbbbb;
+    font-size: 16px;
+    height: 16px;
+    width: 16px;
+    margin: 0 3px;
+}
+.question-container, .sub-question-container {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px dotted #C8C8C8;
+}
+.question, .sub-question {
+    display: flex;
+    flex-direction: row;
+}
+.question-text {
+    flex: 1 1 auto;
+    font-size: 23px;
+    font-weight: 300;
+    padding-top: 5px;
+    padding-left: 40px;
+    position: relative;
+ }
+ .question-text::before {
+     content: 'Q.';
+     position: absolute;
+     left: 0
+ }
+ .question-button .mat-raised-button {
+     color: #ffffff;
+     font-size: 11px !important;
+     padding: 0 17px !important;
+     line-height: 34px !important;
+ }
+ .answer-text {
+    margin-top: 20px;
+    padding-left: 40px;
+    position: relative;
+    opacity: 0.75;
+    font-size: 15px;
+    line-height: 24px;
+ }
+ .answer-text::before {
+     content: 'Ans.:';
+     position: absolute;
+     left: 0;
+}
+.answer-text::ng-deep b, .answer-text::ng-deep strong {
+    font-weight: 700;
+}
+.answer-text::ng-deep h1 {
+    font-size: 16px;
+    font-weight: 700;
+}
+.sub-question-title {
+    flex: 1 1 auto;
+    font-size: 20px;
+    padding-top: 5px;
+}
+.sub-question-list {
+    margin-top: 20px;
+    padding-left: 40px;
+}
+.sub-question-list a {
+    display: block;
+    padding: 5px 0px;
+    color: $primary;
+    position: relative;
+    padding-left: 25px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.sub-question-list a:hover {
+    color: $accent;
+}
+.sub-question-list a::before {
+    content: 'Q.';
+    position: absolute;
+    left: 0;
+}
+
+.workspace-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-top: 20px;
+}
+
+.workspace-column {
+    flex: 50%;
+    max-width: 50%;
+    display: flex;
+}
+
+.quick-action-card {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2) !important;
+    border-radius: 4px !important;
+    margin: 0 7px 15px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.workspace-column:nth-of-type(2n) .quick-action-card{
+    margin-right: 0;
+}
+
+.workspace-column:nth-of-type(2n-1) .quick-action-card{
+    margin-left: 0;
+}
+
+.quick-action-card {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.quick-action-card:not(.noHover):hover {
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3) !important;
+    transform: scale(1.02);
+}
+
+.sub-menu-list {
+    margin: 0;
+    padding: 0;
+}
+
+.sub-menu-list .mat-list-item {
+    height: auto !important;
+    padding: 0px;
+}
+
+.sub-menu-list.mat-list-base::ng-deep .mat-list-item .mat-list-item-content {
+    padding: 0 ;
+}
+
+.sub-menu-title {
+    color: $accent;
+    font-size: 16px !important;
+    padding-bottom: 5px !important;
+    white-space: normal !important;
+    text-overflow: unset !important;
+    line-height: 20px !important;
+}
+
+.sub-menu-description {
+    font-size: 12px !important;
+    opacity: 0.7 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    line-height: 18px;
+}
+
+.emptyCard {
+    margin: 20px 0px 5px;
+}
+
+.emptyCard .mat-card {
+    padding: 16px;
+    margin: 0;
+}
+
+.emptyText {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 22px;
+    color: rgba(0,0,0,0.85);
+}
+
+.emptyText strong {
+    font-weight: 700;
+    color: rgba(0,0,0,1);
+}
+
+.tree-section .mat-card {
+    margin: 20px 0 0;
+    cursor: auto;
+}
+
+.tree-container {
+    padding-top: 16px;
+}
+
+.tree-section .emptyCard .quick-action-card {
+    background: none !important;
+    box-shadow: none !important;
+    border: 1px solid #eeeeee;
+}
+
+.searchForm {
+    margin: 0 0px;
+    display: flex;
+    flex: 1;
+}
+
+.searchForm .mat-form-field.searchField {
+    flex: 1;
+    margin-left: 2px;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-outline {
+    background: #ffffff;
+    border-radius: 100px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+    height: 46px;
+}
+
+.searchForm .mat-form-field.selectCategory {
+    width: 180px;
+}
+
+.searchForm .mat-form-field.selectCategory::ng-deep .mat-select-value {
+    position: relative;
+    top: -12px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.searchForm .mat-form-field.selectCategory::ng-deep .mat-select-arrow-wrapper {
+    position: relative;
+    top: -8px;
+}
+
+.searchForm .mat-form-field.searchField::ng-deep .mat-form-field-outline {
+    border-radius: 0px 100px 100px 0px;
+}
+
+.searchForm .mat-form-field.selectCategory::ng-deep .mat-form-field-outline {
+    border-radius: 100px 0px 0px 100px;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-wrapper {
+    padding: 0;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-outline .mat-form-field-outline-start,
+.searchForm .mat-form-field::ng-deep .mat-form-field-outline .mat-form-field-outline-gap,
+.searchForm .mat-form-field::ng-deep .mat-form-field-outline .mat-form-field-outline-end {
+    border: 0;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-label {
+    padding-left: 20px;
+}
+
+.searchForm .mat-form-field::ng-deep input.mat-input-element {
+    padding-left: 10px;
+    position: relative;
+    top: -12px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-suffix .mat-icon {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 26px;
+    color: $warn-500;
+    cursor: pointer;
+    position: relative;
+    top: -8px;
+}
+
+@media screen and (max-width: 1000px) {
+    .question-text {
+        font-size: 20px;
+    }
+
+    .sub-question-title {
+        font-size: 16px;
+        padding-top: 8px;
+    }
+
+    .question-container {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .answer-text {
+        margin-top: 15px;
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .emptyText{
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .breadcrumbs {
+        font-size: 9px;
+    }
+
+    .detail-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .searchForm {
+        margin: 0;
+    }
+
+    .searchForm .mat-form-field.selectCategory {
+        width: 140px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .question-text {
+        font-size: 18px;
+    } 
+
+    .sub-question-title {
+        font-size: 15px;
+        padding-top: 9px;
+    }
+
+    .answer-text {
+        margin-top: 10px;
+        font-size: 13px;
+        line-height: 21px;
+    }
+
+    .emptyText{
+        font-size: 11px;
+        line-height: 16px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .question-text {
+        font-size: 16px;
+    } 
+
+    .sub-question-title {
+        font-size: 14px;
+        padding-top: 10px;
+    }
+
+    .tree-section .mat-card {
+        margin: 15px 0 0;
+        padding: 10px;
+    }
+
+    .tree-container {
+        padding-top: 12px;
+    }
+
+    .question-button .mat-raised-button {
+        font-size: 10px;
+    }
+
+    .answer-text {
+        font-size: 12px;
+        line-height: 19px;
+    }
+
+    .searchForm .mat-form-field.selectCategory {
+        width: 80px;
+    }
+
+    .searchForm .mat-form-field::ng-deep .mat-form-field-outline {
+        height: 42px;
+    }
+
+    .searchForm .mat-form-field.selectCategory::ng-deep .mat-select-value {
+        top: -16px;
+        padding-left: 2px;
+        font-size: 9px;
+    }
+
+    .searchForm .mat-form-field.selectCategory::ng-deep .mat-select-arrow-wrapper {
+        top: -14px;
+        right: -5px;
+    }
+
+    .searchForm .mat-form-field::ng-deep input.mat-input-element {
+        padding-left: 0px;
+        top: -16px;
+        font-size: 12px;
+    }
+
+    .searchForm .mat-form-field.searchField {
+        min-width: 0;
+    }
+
+    .searchForm .mat-form-field::ng-deep .mat-form-field-suffix .mat-icon {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 20px;
+        top: -13px;
+        right: -2px;
+    }
+
+    .searchForm .mat-form-field-appearance-outline::ng-deep .mat-form-field-infix {
+        padding-bottom: 0;
+    }
+}
+ 

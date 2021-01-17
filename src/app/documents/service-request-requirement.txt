@@ -1,0 +1,16 @@
+
+In case no results found, we need to add a button to generate Service Request ( dummy functionality, show a form with fields Issue, Description, Priority, assigned To) , On save don’t do anything , just say submitted successfully with some greetings.
+
+
+View Open/Reopened Tickets
+
+1. Date Opened/Reopened
+
+2. Ticket No
+
+3. Ticket Type
+
+5. Ticket Subject
+
+6. Assigned to
+

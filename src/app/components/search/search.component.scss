@@ -1,0 +1,359 @@
+@import "../../../custom-theme.scss";
+
+h1.main-text {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 300;
+    margin: 20px 0 30px; 
+}
+
+.searchForm {
+    // text-align: center;
+    width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.searchForm .mat-form-field.searchField {
+    flex: 1;
+    margin-left: 2px;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-outline {
+    background: #ffffff;
+    border-radius: 100px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+    height: 56px;
+}
+
+.searchForm .mat-form-field.selectCategory {
+    width: 180px;
+}
+
+.searchForm .mat-form-field.selectCategory::ng-deep .mat-select-value {
+    position: relative;
+    top: -7px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.searchForm .mat-form-field.selectCategory::ng-deep .mat-select-arrow-wrapper {
+    position: relative;
+    top: -3px;
+}
+
+.searchForm .mat-form-field.searchField::ng-deep .mat-form-field-outline {
+    border-radius: 0px 100px 100px 0px;
+}
+
+.searchForm .mat-form-field.selectCategory::ng-deep .mat-form-field-outline {
+    border-radius: 100px 0px 0px 100px;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-outline .mat-form-field-outline-start,
+.searchForm .mat-form-field::ng-deep .mat-form-field-outline .mat-form-field-outline-gap,
+.searchForm .mat-form-field::ng-deep .mat-form-field-outline .mat-form-field-outline-end {
+    border: 0;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-label {
+    padding-left: 20px;
+}
+
+.searchForm .mat-form-field::ng-deep input.mat-input-element {
+    padding-left: 10px;
+    position: relative;
+    top: -6px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.searchForm .mat-form-field::ng-deep .mat-form-field-suffix .mat-icon {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    color: $warn-500;
+    cursor: pointer;
+    position: relative;
+    top: -4px;
+}
+
+.workspace-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.workspace-column {
+    flex: 33.33%;
+    max-width: 33.33%;
+    display: flex;
+}
+
+
+.quick-action-card {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2) !important;
+    border-radius: 4px !important;
+    margin: 0 7px 15px;
+    overflow: hidden;
+    width: 100%;
+    background: $primary;
+    padding: 10px 12px;
+}
+
+.quick-action-card {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.quick-action-card:not(.noHover):hover {
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3) !important;
+    transform: scale(1.02);
+}
+
+.sub-menu-list {
+    margin: 0;
+    padding: 0;
+}
+
+.sub-menu-list .mat-list-item {
+    height: auto !important;
+    padding: 0px;
+}
+
+.sub-menu-list.mat-list-base::ng-deep .mat-list-item .mat-list-item-content {
+    padding: 0 ;
+}
+
+.sub-menu-list.mat-list-base::ng-deep .mat-list-item .mat-list-text, 
+.sub-menu-list.mat-list-base::ng-deep .mat-list-option .mat-list-text {
+    padding-left: 14px !important;
+    // padding-right: 16px !important;
+}
+
+.sub-menu-title {
+    color: #ffffff;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    padding-bottom: 0px !important;
+    white-space: normal !important;
+    text-overflow: unset !important;
+    line-height: 20px !important;
+}
+
+.sub-menu-description {
+    font-size: 12px !important;
+    opacity: 0.7 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    line-height: 18px;
+}
+
+// .sub-menu-icon {
+//     color: rgba(255,255,255,1);
+//     font-size: 20px !important;
+//     line-height: 24px;
+// }
+
+.sub-menu-icon {
+    background: #ffffff;
+    width: 34px !important;
+    height: 34px !important;
+    text-align: center;
+    line-height: 32px;
+}
+
+.sub-menu-icon img {
+    height: 22px;
+    filter: invert(40%) sepia(83%) saturate(4434%) hue-rotate(343deg) brightness(100%) contrast(92%);
+    // filter: invert(29%) sepia(12%) saturate(4999%) hue-rotate(202deg) brightness(105%) contrast(97%);
+}
+
+.new-category .sub-menu-icon img {
+    filter: invert(62%) sepia(42%) saturate(7489%) hue-rotate(185deg) brightness(99%) contrast(93%);
+}
+
+.new-category .quick-action-card {
+    background: $accent;
+}
+
+.trySearching {
+    font-size: 12px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+@media screen and (max-width: 1160px) {
+    .workspace-column {
+        flex: 50%;
+        max-width: 50%;
+    }
+
+    .searchForm {
+        width: 100%;
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+    h1.main-text {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    h1.main-text {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .workspace-column {
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    .searchForm {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .quick-action-card {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+    }
+
+    h1.main-text {
+        font-size: 22px;
+        margin: 10px 0 20px;
+    }
+
+    .searchForm {
+        margin-bottom: 10px;
+    }
+
+    .searchForm .mat-form-field::ng-deep .mat-form-field-outline {
+        height: 48px;
+    }
+
+    .searchForm .mat-form-field.selectCategory {
+        width: 150px;
+    }
+
+    .searchForm .mat-form-field.selectCategory::ng-deep .mat-select-value {
+        top: -11px;
+        padding-left: 6px;
+        font-size: 12px;
+    }
+
+    .searchForm .mat-form-field.selectCategory::ng-deep .mat-select-arrow-wrapper {
+        top: -8px;
+    }
+
+    .searchForm .mat-form-field::ng-deep input.mat-input-element {
+        padding-left: 5px;
+        top: -11px;
+        font-size: 14px;
+    }
+    
+    .searchForm .mat-form-field::ng-deep .mat-form-field-suffix .mat-icon {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 24px;
+        top: -9px;
+    }
+
+    .searchForm .mat-form-field-appearance-outline::ng-deep .mat-form-field-wrapper {
+        padding-bottom: 0;
+    }
+
+    // .sub-menu-icon {
+    //     width: 36px !important;
+    //     height: 36px !important;
+    //     line-height: 34px;
+    //     margin-top: 0;
+    // }
+
+    // .sub-menu-icon img {
+    //     height: 22px;
+    // }
+
+    // .sub-menu-title {
+    //     font-size: 13px !important;
+    // }
+}
+
+@media screen and (max-width: 440px) {
+    h1.main-text {
+        font-size: 18px;
+        margin: 5px 0 15px;
+    }
+
+    .searchForm .mat-form-field.selectCategory {
+        width: 100px;
+    }
+
+    .searchForm .mat-form-field::ng-deep .mat-form-field-outline {
+        height: 42px;
+    }
+
+    .searchForm .mat-form-field.selectCategory::ng-deep .mat-select-value {
+        top: -16px;
+        padding-left: 2px;
+        font-size: 9px;
+    }
+
+    .searchForm .mat-form-field.selectCategory::ng-deep .mat-select-arrow-wrapper {
+        top: -14px;
+        right: -5px;
+    }
+
+    .searchForm .mat-form-field::ng-deep input.mat-input-element {
+        padding-left: 0px;
+        top: -16px;
+        font-size: 12px;
+    }
+
+    .searchForm .mat-form-field.searchField {
+        min-width: 0;
+    }
+
+    .searchForm .mat-form-field::ng-deep .mat-form-field-suffix .mat-icon {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 20px;
+        top: -13px;
+        right: -2px;
+    }
+    .searchForm .mat-form-field-appearance-outline::ng-deep .mat-form-field-infix {
+        padding-bottom: 0;
+    }
+
+    .quick-action-card {
+        padding: 10px 12px;
+    }
+
+    .sub-menu-icon {
+        width: 32px !important;
+        height: 32px !important;
+        line-height: 29px;
+    }
+
+    .sub-menu-title {
+        font-size: 12px !important;
+    }
+
+    .sub-menu-list.mat-list-base::ng-deep .mat-list-item .mat-list-text, 
+    .sub-menu-list.mat-list-base::ng-deep .mat-list-option .mat-list-text {
+        padding-left: 12px !important;
+    }
+}

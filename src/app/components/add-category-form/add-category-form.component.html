@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Add Category</h1>
+<form autocomplete="off" novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content>
+
+        <div class="field">
+            <mat-form-field appearance="outline">
+                <mat-label>Category Name</mat-label>
+                <input type="text" formControlName="CategoryName" matInput placeholder="Enter category name...">
+                <mat-error *ngIf="hasError('CategoryName', 'required')">Category name is mandatory.</mat-error>
+            </mat-form-field>
+        </div>
+        
+    </div>
+    <div mat-dialog-actions>
+    <div class="spacer"></div>
+    <button type="button" mat-raised-button color="primary" (click)="cancel()">Cancel</button> 
+    <button type="submit" [disabled]="form.invalid || submitted || !form.dirty" mat-raised-button color="accent" cdkFocusInitial>Submit</button>
+    </div>
+</form> 
+    

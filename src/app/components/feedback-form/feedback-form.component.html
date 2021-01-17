@@ -1,0 +1,27 @@
+<!-- <h1 mat-dialog-title>Feedback</h1> -->
+<form autocomplete="off" novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content>
+        <h2 class="experianceTxt">How was your experience?</h2>
+
+        <div class="ratingRadio">
+            <mat-radio-group formControlName="Rating">
+                <mat-radio-button value="0"><img src="assets/images/thumbs-up.png" alt="Thumbs Up Image"></mat-radio-button> 
+                <mat-radio-button value="1"><img src="assets/images/thumbs-down.png" alt="Thumbs Down Image"></mat-radio-button> 
+            </mat-radio-group>         
+        </div>
+
+        <div class="field">
+            <mat-form-field appearance="outline">
+                <mat-label>Write Your Comment</mat-label>
+                <textarea rows="4" formControlName="Comment" matInput placeholder="Type your comment..."></textarea>
+                <mat-error *ngIf="hasError('Comment', 'required')">Description is mandatory.</mat-error>
+            </mat-form-field>
+        </div>
+        
+    </div>
+    <div mat-dialog-actions>
+    <div class="spacer"></div>
+    <button type="button" mat-raised-button color="primary" (click)="cancel()">Later</button> 
+    <button type="submit" [disabled]="form.invalid || submitted || !form.dirty" mat-raised-button color="accent" cdkFocusInitial>Submit</button>
+    </div>
+</form> 

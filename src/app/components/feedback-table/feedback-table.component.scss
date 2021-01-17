@@ -1,0 +1,218 @@
+@import "../../../custom-theme.scss";
+
+:host {
+    width: 100% ;
+    display: flex;
+}
+
+.navContainer {
+    display: flex;
+    padding: 0px 7px 15px;
+}
+
+.navContainer .breadcrumbs {
+    flex: 1;
+}
+
+.breadcrumbs {
+    vertical-align: middle;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    
+    border: 1px dotted #C8C8C8;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 10px;
+}
+
+.bdNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.iconNav {
+    cursor: pointer;
+}
+
+.linkNav {
+    cursor: pointer;
+    text-decoration: none;
+    color: $primary;
+}
+
+.linkDivider {
+    color: #bbbbbb;
+    font-size: 16px;
+    height: 16px;
+    width: 16px;
+    margin: 0 3px;
+}
+
+.workspace-card {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2) !important;
+    border-radius: 4px !important;
+    margin: 0 7px 15px;
+    overflow: hidden;
+    width: 100%;
+    flex: 1;
+}
+
+.workspace-card.feedback-report {
+    padding: 0;
+}
+
+.workspace-card.feedback-report table {
+    width: 100%;
+}
+
+.workspace-card.feedback-report .mat-card-header .mat-card-title {
+    margin: 16px 0;
+    padding-left: 6px;
+    font-size: 15px;
+}
+
+.workspace-card.feedback-report tr.mat-header-row {
+    height: 44px;
+}
+
+.workspace-card.feedback-report .mat-cell {
+    font-size: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.workspace-card.feedback-report .mat-header-cell {
+    font-size: 11px;
+}
+
+.activityBreadcrumbs {
+    vertical-align: middle;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    font-size: 10px;
+}
+
+.activityBdNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.feedbackElement {
+    padding-left: 0;
+    align-items: center;
+    display: flex;
+}
+
+.feedbackElement .thumbText {
+    font-size: 11px;
+    margin-left: 5px;
+}
+
+.feedbackElement.good .thumbText {
+    color: #149ad9;
+}
+
+.feedbackElement.bad .thumbText {
+    color: #e94053;
+}
+
+.feedbackElement img {
+    width: 24px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    border-radius: 50%;
+    vertical-align: top;
+}
+
+.workspace-card.feedback-report table th.mat-table-sticky {
+    border-top: 1px solid #e0e0e0 !important;
+}
+
+@media screen and (max-width: 1160px) {
+    .tableContainer{
+        overflow: auto;
+    }
+
+    .workspace-card.feedback-report table {
+        width: 900px;
+        max-width: none !important;
+    }
+
+    .workspace-card.feedback-report table .mat-table-sticky:last-child {
+        padding-left: 10px;
+    }
+    
+    .workspace-card.feedback-report table .mat-table-sticky:last-child {
+        border-left: 1px solid #e0e0e0;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .workspace-card {
+        margin-left: 0;
+        margin-right: 0;        
+    }
+
+    .workspace-card.feedback-report .mat-cell {
+        font-size: 11px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .workspace-card.feedback-report table {
+        width: 700px;
+    }
+
+    .workspace-card.feedback-report table .mat-header-cell:nth-of-type(2) {
+        width: 20% !important;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .workspace-card .mat-card-header .mat-card-title {
+        font-size: 14px !important;
+        padding-left: 0 !important;
+    }
+    .workspace-card td.mat-cell:first-of-type, 
+    .workspace-card td.mat-footer-cell:first-of-type, 
+    .workspace-card th.mat-header-cell:first-of-type {
+        padding-left: 14px;
+    }
+    .workspace-card td.mat-cell:last-of-type, 
+    .workspace-card td.mat-footer-cell:last-of-type, 
+    .workspace-card th.mat-header-cell:last-of-type {
+        padding-right: 4px;
+    }
+    .feedbackElement .thumbText {
+        font-size: 9px;
+    }
+    .workspace-card.feedback-report .mat-header-cell {
+        font-size: 9px;
+    }
+    .workspace-card.feedback-report table .mat-table-sticky:last-child {
+        padding-left: 5px;
+    }
+    .feedbackElement img {
+        width: 20px;
+    }
+    .activityBreadcrumbs {
+        font-size: 8px;
+        line-height: normal;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .workspace-card.feedback-report .mat-cell {
+        font-size: 10px;
+    }
+
+    .workspace-card .mat-card-header .mat-card-title {
+        font-size: 13px;
+    }
+}

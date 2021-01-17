@@ -1,0 +1,71 @@
+<h1 mat-dialog-title>Add New Question</h1>
+<form autocomplete="off" novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content>
+        <div class="field">
+            <mat-form-field appearance="outline" [hideRequiredMarker]="false">
+                <mat-label>Question</mat-label>
+                <textarea formControlName="QuestionText" required matInput placeholder="Enter question text..."></textarea>
+                <mat-error *ngIf="hasError('QuestionText', 'required')">Question text is mandatory.</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="field">
+            <div class="ck-editor-field">
+                <div class="label">Answer:</div>
+                <angular-editor [placeholder]="'Enter answer text here...'" formControlName="Answer" [config]="answerEditorConfig"></angular-editor>
+                <!-- <mat-error *ngIf="hasError('Answer', 'required')">Answer text is mandatory.</mat-error> -->
+            </div>
+        </div>
+        <div class="field keyword">
+            <mat-form-field appearance="outline">
+                <mat-label>Keyword</mat-label>
+                <mat-chip-list #keywordList aria-label="Keyword selection">
+                    <mat-chip *ngFor="let keyword of keywords" [selectable]="selectable"
+                            [removable]="removable" (removed)="remove(keyword)">
+                    {{keyword.keyText}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                    <input placeholder="Enter keyword..."
+                            [matChipInputFor]="keywordList"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                            [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+            </mat-form-field>
+                  
+        </div>
+        <div class="workspace-grid">
+            <div class="workspace-column">
+                <div class="field weightage">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Weightage</mat-label>
+                        <input type="number" min="1" max="100" formControlName="Weightage" matInput placeholder="Enter weightage...">
+                        <mat-error *ngIf="hasError('Weightage', 'max') || hasError('Weightage', 'min')">Weightage should be between 1-100.</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="workspace-column">
+                <div class="field">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Category Name</mat-label>
+                        <input readonly type="text" formControlName="Category" matInput placeholder="Enter category name...">
+                    </mat-form-field>
+                </div>
+            </div>
+            <!-- <div class="workspace-column">
+                <div class="field">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Sub Category Name</mat-label>
+                        <input type="text" formControlName="SubCategory" matInput placeholder="Enter sub category name...">
+                    </mat-form-field>
+                </div>
+            </div> -->
+        </div>
+        
+        
+    </div>
+    <div mat-dialog-actions>
+    <div class="spacer"></div>
+    <button type="button" mat-raised-button color="primary" (click)="cancel()">Cancel</button> 
+    <button type="submit" [disabled]="form.invalid || submitted || !form.dirty" mat-raised-button color="accent" cdkFocusInitial>Submit</button>
+    </div>
+</form>

@@ -1,0 +1,301 @@
+@import '../../../custom-theme.scss';
+
+.login-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: auto;
+    // background: $accent; // First Theme 
+    // background: $warn; // Second Theme
+    // background: $primary; // Third Theme // Fourth Theme
+    // background: #000000; // Fifth, Sixth Theme
+    // background: #ffffff; // Seventh Theme
+}
+
+.login-container.bg-theme-1 {
+    background: $primary;
+}
+
+.login-container.bg-theme-2 {
+    background: #000000;
+}
+
+.login-container.bg-theme-3 {
+    background: #000000;
+}
+
+.login-container.bg-theme-4 {
+    background: #ffffff;
+}
+
+.login-container:before{
+    content: '';
+    // background:url('../../../assets/images/login-page-bg.jpg') no-repeat center center; // First, Second, Third, Fourth Theme
+    // background:url('../../../assets/images/background/bg0012.jpg') no-repeat center center; // Fifth Theme
+    // background:url('../../../assets/images/background/bg0011.jpg') no-repeat center center; // Sixth Theme
+    // background:url('../../../assets/images/background/bg0004.jpg') no-repeat center center; // Seventh Theme
+    // background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    // opacity: 0.4; // First Theme
+    // opacity: 0.2; // Second Theme
+    // opacity: 0.4; // Third Theme // Fourth Theme
+    // opacity: 0.4; // Fifth Theme
+    // opacity: 0.45; // Sixth Theme
+    // opacity: 0.6; // Seventh Theme
+}
+
+.login-container.bg-theme-1:before {
+    background:url('../../../assets/images/login-page-bg.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.4;
+}
+
+.login-container.bg-theme-2:before {
+    background:url('../../../assets/images/background/bg0012.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.4;
+}
+
+.login-container.bg-theme-3:before {
+    background:url('../../../assets/images/background/bg0011.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.45;
+}
+
+.login-container.bg-theme-4:before {
+    background:url('../../../assets/images/background/bg0004.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.6;
+}
+
+.mat-card {
+    box-shadow: 0px 0px 100px rgba(0,0,0,0.8) !important; // First - Sixth Theme
+    // box-shadow: 0px 0px 100px rgba(0,0,0,0) !important; // Seventh Theme
+    border-radius: 10px;
+    width: 400px;
+    padding: 32px;
+    margin: 120px auto 30px;
+    position: relative;
+    background: $primary; // First Theme // Second Theme
+    // background: $accent; // Third Theme
+    // background: #ff5f54; // Fourth Theme
+}
+
+.login-container.bg-theme-4 .mat-card {
+    box-shadow: none !important;
+}
+
+.login-container.bg-theme-1 .mat-card {
+    background: #ff5f54;
+}
+
+.mat-card:before{
+    content: '';
+    background:url('../../../assets/images/login-box-bg.jpg') no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 0.15; // First, Second, Third, Fourth Theme
+    border-radius: 10px;
+}
+
+// :host {
+//     height: 100vh;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+.logo {
+    width: 160px;
+    height: 160px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: -80px;
+    margin-left: -80px;
+    overflow: hidden;
+    text-align: center;
+    // box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    line-height: 144px;
+}
+
+.logo img {
+    width: 130px;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+.heading {
+    margin: 15px 0 15px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;
+    background: #ffffff;
+    background: linear-gradient(to right, #ffffff 10%,#f2f2f2 52%,#ffffff 90%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+}
+
+.formContainer {
+    width: 320px;
+    max-width: 100%;
+    margin: 70px auto 0;
+}
+
+.formContainer .mat-form-field::ng-deep .mat-form-field-outline {
+    background: #ffffff;
+    border-radius: 100px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+    height: 46px;
+}
+
+.formContainer .mat-form-field::ng-deep .mat-form-field-wrapper {
+    padding: 0;
+}
+
+.formContainer .mat-form-field::ng-deep .mat-form-field-outline .mat-form-field-outline-start,
+.formContainer .mat-form-field::ng-deep .mat-form-field-outline .mat-form-field-outline-gap,
+.formContainer .mat-form-field::ng-deep .mat-form-field-outline .mat-form-field-outline-end {
+    border: 0;
+}
+
+.formContainer .mat-form-field::ng-deep input.mat-input-element {
+    padding-left: 10px;
+    position: relative;
+    top: -12px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.formContainer .mat-form-field::ng-deep  .mat-form-field-prefix {
+    top: -7px;
+    left: 5px;
+}
+
+.formContainer .mat-form-field::ng-deep  .mat-form-field-prefix .mat-icon {
+    font-size: 20px;
+}
+
+.formContainer .mat-form-field::ng-deep .mat-select-value {
+    position: relative;
+    top: -12px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.formContainer .mat-form-field::ng-deep .mat-select-arrow-wrapper {
+    position: relative;
+    top: -8px;
+}
+
+.formContainer .mat-form-field::ng-deep .mat-form-field-flex {
+    margin-top: 5px;;
+}
+
+.formContainer .mat-form-field::ng-deep .mat-form-field-subscript-wrapper {
+    margin-top: 14px;
+    text-align: right;
+}
+
+.formContainer .mat-form-field::ng-deep .mat-form-field-subscript-wrapper .mat-error {
+    color: rgba(255,255,255,0.7);
+}
+
+.formContainer > * {
+    width: 100%;
+}
+
+.formButtons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mat-button.forgetPwdBtn {
+    padding: 0 8px;
+    line-height: 40px;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+@media screen and (max-width:900px){
+    .formContainer .mat-form-field::ng-deep .mat-select-value, 
+    .formContainer .mat-form-field::ng-deep input.mat-input-element {
+        top: -14px;
+        font-size: 12px;
+    }
+
+    .formContainer .mat-form-field::ng-deep .mat-form-field-outline {
+        height: 42px;
+    }
+    .formContainer .mat-form-field-appearance-outline::ng-deep .mat-form-field-infix {
+        padding-bottom: 15px;
+    }
+
+    .formContainer .mat-form-field .mat-form-field-prefix {
+        top: -8px;
+    }
+
+    .formContainer .mat-form-field .mat-select-arrow-wrapper {
+        top: -11px;
+    }
+
+    .formContainer .mat-form-field::ng-deep .mat-form-field-subscript-wrapper {
+        margin-top: 10px;
+    }
+
+    .formContainer .mat-form-field.mat-form-field-type-mat-select::ng-deep .mat-form-field-subscript-wrapper {
+        margin-top: 8px;
+    }
+    
+
+    .formContainer .mat-form-field::ng-deep .mat-form-field-subscript-wrapper .mat-error {
+        font-size: 11px;
+        padding-top: 2px;
+    }
+}
+
+@media screen and (max-width:540px){
+    .mat-card{
+        width: 100%;
+        flex: 1;
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+
+    .formContainer {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:360px){
+    .mat-card {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .logo {
+        width: 140px;
+        height: 140px;
+        line-height: 140px;
+        top: -70px;
+        margin-left: -70px;
+    }
+    
+    .logo img {
+        width: 100px;
+    }
+}

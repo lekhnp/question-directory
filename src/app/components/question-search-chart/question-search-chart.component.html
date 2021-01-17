@@ -1,0 +1,23 @@
+<mat-card class="workspace-card">
+    <mat-card-header>
+        <mat-card-title>Trending Questions</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="QuestionText">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header width="70%"> Questions </th>
+            <td mat-cell *matCellDef="let element"> {{element.QuestionText}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="HitCount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header width="25%"> No. of Times Viewed </th>
+            <td mat-cell *matCellDef="let element"> {{element.HitCount}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</mat-card>
+
+    

@@ -1,0 +1,54 @@
+<div class="login-container" [ngClass]="backgroundClasses[randomNumber]">
+
+    <mat-card>
+        <div class="logo">
+            <img src="assets/images/ps-login-logo.svg" alt="Pure Software Logo">
+        </div>
+    
+        <form autocomplete="off" novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="formContainer">
+                <!-- <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <mat-icon matPrefix style="margin-right: 5px;">phone_android</mat-icon>
+                    <input matInput formControlName="username" placeholder="Type your username">
+                    <mat-error *ngIf="hasError('username', 'required')">Username is required.</mat-error>
+                    <mat-error *ngIf="hasError('username', 'pattern')">Please enter valid username.</mat-error>
+                </mat-form-field> -->
+                <mat-form-field appearance="outline" color="warn">
+                    <mat-icon matPrefix style="margin-right: 5px;">account_circle</mat-icon>
+                    <mat-select formControlName="userData" placeholder="Select User" (keyup.enter)="onSubmit()">
+                        <mat-option *ngFor="let user of usersObj" [value]="user">{{user.UserName}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="hasError('userData', 'required')">Username is required.</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" color="warn">
+                    <!-- <mat-label>Password</mat-label> -->
+                    <mat-icon matPrefix style="margin-right: 5px;">lock</mat-icon>
+                    <input type="password" matInput formControlName="password" maxlength="16" placeholder="Type your password">
+                    <mat-error *ngIf="hasError('password', 'required')">Password is required.</mat-error>
+                    <mat-error *ngIf="hasError('password', 'minlength')">Password should be 6-16 digit valid password.</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" color="warn">
+                    <!-- <mat-label>Who are you?</mat-label> -->
+                    <mat-icon matPrefix style="margin-right: 5px;">person</mat-icon>
+                    <mat-select formControlName="role" placeholder="Who are you?" (keyup.enter)="onSubmit()">
+                        <mat-option [value]="'operator'">Operator</mat-option>
+                        <mat-option [value]="'admin'">Administrator</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="hasError('role', 'required')">Who are you is required.</mat-error>
+                </mat-form-field>
+    
+                <div class="formButtons">
+                    <!-- <button type="button" mat-button color="accent" class="forgetPwdBtn">Forgot Password?</button> -->
+                    <button [disabled]="loginForm.invalid || submitted" mat-raised-button [color]="randomNumber == 0 ? 'primary': 'warn'">Login Now</button> <!-- First, Second, Third Theme -->
+                    <!-- <button [disabled]="loginForm.invalid || submitted" mat-raised-button color="primary">Login Now</button> --> <!-- Fourth Theme -->
+                </div>
+            </div>
+        </form>
+    
+    
+    </mat-card>
+
+</div>

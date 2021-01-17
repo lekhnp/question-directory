@@ -1,0 +1,26 @@
+<div class="sidenav-main">
+
+    <div class="sidenav-top-content">
+        <h2 *ngIf="user.role == 'operator'">Most Viewed</h2>
+        <h2 *ngIf="user.role == 'admin'">Recently Added</h2>
+        <p *ngIf="selectedCategory">
+            {{selectedCategory.CategoryName}}
+        </p>
+    </div>
+
+    <div class="sidenav-content-items">
+        <mat-action-list>
+            <div *ngFor="let item of mostViewedData">
+                <mat-list-item (click)="viewDetail(item)" routerLink="/details"  [matTooltip]="(item.QuestionText.length > 70) ? item.QuestionText : ''">
+                    <h3 mat-line>{{item.QuestionText | truncate:[70, '...']}}</h3>
+                    <p mat-line> 
+                        <mat-icon>remove_red_eye</mat-icon> {{item.HitCount}}
+                        &nbsp;&nbsp; | &nbsp;&nbsp; {{item.RelatedQuestions.length}}&nbsp; Sub Questions 
+                    </p>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </div>
+        </mat-action-list>
+    </div>
+
+</div>

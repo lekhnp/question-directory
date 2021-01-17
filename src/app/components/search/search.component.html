@@ -1,0 +1,63 @@
+<h1 class="main-text">Explore Our Knowledge Base</h1>
+
+<div class="searchForm">
+    <mat-form-field class="selectCategory" color="accent" appearance="outline">
+        <!-- <mat-label>Search...</mat-label> -->
+        <mat-select placeholder="Select Category" [formControl]="categoryField" (selectionChange)="onCategoryChange($event.value)">
+            <mat-option [value]="''">
+                Select Category 
+            </mat-option>
+            <mat-option *ngFor="let category of categoryList" [value]="category.CategoryId">
+                {{category.CategoryName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="searchField" appearance="outline">
+        <!-- <mat-label>Search...</mat-label> -->
+        <input matInput placeholder="Search..." (keyup.enter)="search(searchField.value,categoryField.value)" [formControl]="searchField" [matAutocomplete]="autoSearch">
+        <mat-icon (click)="search(searchField.value,categoryField.value)" matSuffix>search</mat-icon>
+        <mat-autocomplete #autoSearch="matAutocomplete" >
+            <ng-container *ngIf="!questionData">
+                <mat-option><span class="trySearching">Try searching for:</span></mat-option>
+                <mat-divider></mat-divider>
+                <mat-option *ngFor="let item of ['Pure Software','Hiring','Policy','Reimbursement','Leave Policy']" 
+                [value]="item" (click)="search(searchField.value,categoryField.value)">{{item}}</mat-option>
+            </ng-container>
+            
+            <ng-container *ngIf="!isLoading">
+                <mat-option *ngFor="let item of questionData" (click)="viewDetail(searchField.value)" [value]="item">
+                    {{item.QuestionText}}
+                </mat-option>
+            </ng-container>
+        </mat-autocomplete>
+    </mat-form-field>
+</div>
+
+<div class="workspace-grid">
+    <div class="workspace-column" *ngFor="let item of categoryList" [@boxAnimation]>
+        <mat-card class="quick-action-card" matRipple (click)="viewByCategory(item)">
+            <mat-list class="sub-menu-list">
+                <mat-list-item>
+                    <mat-icon class="sub-menu-icon" mat-list-icon>
+                        <img *ngIf="categoryIcons[item.CategoryId]" [src]="categoryIcons[item.CategoryId]" [alt]="item.CategoryName">
+                        <img *ngIf="!categoryIcons[item.CategoryId]" [src]="categoryIcons['default']" [alt]="item.CategoryName">
+                    </mat-icon>
+                    <h3 class="sub-menu-title" mat-line>{{item.CategoryName}}</h3>
+                    <!-- <p class="sub-menu-description" mat-line> {{item.Answer | truncate:[120, '...']}} </p> -->
+                </mat-list-item>
+            </mat-list>
+        </mat-card>
+    </div>
+    <div class="workspace-column new-category" *ngIf="categoryList && user.role == 'admin'" [@boxAnimation]>
+        <mat-card class="quick-action-card" matRipple (click)="addNewCategory(categoryList.length)">
+            <mat-list class="sub-menu-list">
+                <mat-list-item>
+                    <mat-icon class="sub-menu-icon" mat-list-icon>
+                        <img [src]="categoryIcons['add']" alt="Core Banking">
+                    </mat-icon>
+                    <h3 class="sub-menu-title" mat-line>Add New Category</h3>
+                </mat-list-item>
+            </mat-list>
+        </mat-card>
+    </div>
+</div>

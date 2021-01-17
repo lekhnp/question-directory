@@ -1,0 +1,104 @@
+<div class="searchContainer">
+    <div class="mat-caption breadcrumbs" *ngIf="!categoryId"> 
+        <span class="bdNav">
+            <mat-icon (click)="goBackToHome()" class="iconNav" color="accent">home</mat-icon>
+        </span>
+    </div>
+    <div class="searchForm">
+        <mat-form-field class="selectCategory" color="accent" appearance="outline">
+            <!-- <mat-label>Search...</mat-label> -->
+            <mat-select placeholder="Select Category" [formControl]="categoryField" (selectionChange)="onCategoryChange($event.value)">
+                <mat-option [value]="''">
+                    Select Category 
+                </mat-option>
+                <mat-option *ngFor="let category of categoryList" [value]="category.CategoryId">
+                    {{category.CategoryName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="searchField" appearance="outline">
+            <!-- <mat-label>Search...</mat-label> -->
+            <input matInput placeholder="Search..." (keyup.enter)="search(searchField.value,categoryField.value)" [formControl]="searchField" [matAutocomplete]="autoSearch">
+            <mat-icon (click)="search(searchField.value,categoryField.value)" matSuffix>search</mat-icon>
+            <mat-autocomplete #autoSearch="matAutocomplete">
+                <ng-container *ngIf="!questionData">
+                    <mat-option><span class="trySearching">Try searching for:</span></mat-option>
+                    <mat-divider></mat-divider>
+                    <mat-option *ngFor="let item of ['Pure Software','Hiring','Policy','Reimbursement','Leave Policy']" 
+                    [value]="item" (click)="search(searchField.value,categoryField.value)">{{item}}</mat-option>
+                </ng-container>
+                <ng-container *ngIf="!isLoading">
+                    <mat-option *ngFor="let item of questionData"  (click)="viewDetail(searchField.value,'none')" [value]="item">
+                        {{item.QuestionText}}
+                    </mat-option>
+                </ng-container>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+</div>
+<div class="didYouMean" *ngIf="didYouMean" [@boxAnimation]>
+    Did you mean: <a (click)="search(didYouMean,categoryField.value)">{{didYouMean}}</a>
+</div>
+<div class="navContainer" *ngIf="categoryId" [@boxAnimation]>
+    <div class="mat-caption breadcrumbs"> 
+        <span class="bdNav">
+            <mat-icon (click)="goBackToHome()" class="iconNav" color="warn">home</mat-icon>
+            <mat-icon class="linkDivider">keyboard_arrow_right</mat-icon>
+        </span>
+        <span class="bdNav">
+            <span class="textNav">{{selectedCategory && selectedCategory.CategoryName}}</span>
+        </span>
+    </div>
+    <div class="question-button" *ngIf="user.role == 'admin'">
+        <button mat-raised-button color="accent" (click)="createQuestion()" aria-label="New Question Button">
+            New Question
+        </button>
+    </div>
+</div>
+<div *ngIf="results <= 0" class="emptyCard" [@boxAnimation]>
+        <mat-card class="quick-action-card noHover">
+            <div class="emptyText paddingTop20 paddingBottom20">
+                <span *ngIf="keyword != 'byCategory'">
+                    Your search - <strong>{{keyword}}</strong> - did not match any documents. <br><br>
+
+                    Suggestions: <br><br>
+                    
+                    Make sure that all words are spelled correctly.<br>
+                    Try different keywords.<br>
+                    Try more general keywords.<br>
+                    Try fewer keywords.<br>
+                    If you are not able to find anything, you can click on below button to raise a Service Request.  <br><br>
+                </span>
+
+                <span *ngIf="keyword == 'byCategory'">
+                    <strong>{{selectedCategory && selectedCategory.CategoryName}}</strong> - did not have any documents. <br><br>
+
+                    Suggestions: <br><br>
+
+                    Try different keywords.<br>
+                    If you are not able to find anything, you can click on below button to raise a Service Request.  <br><br>
+                </span>
+
+                <button mat-raised-button (click)="createRequest()" color="primary" aria-label="Service Request Button">
+                    Raise a Service Request
+                </button>
+            </div>
+        </mat-card>
+
+</div>
+<div class="workspace-grid">
+    <div class="workspace-column" *ngFor="let item of results | paginate: { itemsPerPage:10, currentPage: page }" [@boxAnimation]>
+        <mat-card class="quick-action-card quick-app-status" matRipple (click)="viewDetail(item,searchField.value)">
+            <mat-list class="sub-menu-list">
+                <mat-list-item>
+                    <h3 class="sub-menu-title" mat-line>{{item.QuestionText}}</h3>
+                    <p class="sub-menu-description" mat-line> {{item.Answer | truncate:[120, '...']}} </p>
+                </mat-list-item>
+            </mat-list>
+        </mat-card>
+    </div>
+</div>
+
+<div class="pagination" *ngIf="results && results.length > 10" [@boxAnimation]>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>

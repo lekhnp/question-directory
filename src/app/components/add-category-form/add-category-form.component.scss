@@ -1,0 +1,46 @@
+@import "../../../custom-theme.scss";
+
+.mat-dialog-title {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+    padding: 10px 20px;
+} 
+.mat-dialog-content {
+    margin:0;
+    padding: 0 20px;
+    font-size: 13px;
+}
+.mat-dialog-actions {
+    margin: 0;
+    padding: 0px 20px 20px;
+}
+
+.mat-dialog-actions .mat-raised-button {
+    color: #ffffff;
+}
+.mat-dialog-actions .mat-raised-button[disabled] {
+    color: rgba(0,0,0,0.26);
+}
+
+.mat-form-field {
+    display: block;
+}
+
+.field {
+    padding: 0 5px 10px;
+    width: 100%;
+    
+}
+
+.workspace-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.workspace-column {
+    flex: 50%;
+    max-width: 50%;
+    display: flex;
+}

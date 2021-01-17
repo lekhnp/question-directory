@@ -1,0 +1,98 @@
+@import "../../../custom-theme.scss";
+
+.mat-card.tree-card {
+    background: none;
+    box-shadow: none;
+    margin-bottom: 7px;
+    border: 1px solid #eeeeee;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.mat-card.tree-card:hover {
+    border-color: $primary;
+}
+
+.subQuesLine {
+    display: flex;
+    align-items: center;
+}
+
+.subQuesText { flex: 1; font-size: 13px; }
+
+.subQuesArrow {
+    margin-right: 10px;
+}
+
+.subQuesArrow .mat-icon {
+    vertical-align: top;
+    color: $primary;
+}
+
+.mat-card.tree-card.expended {
+    border-color: $accent;
+}
+
+.mat-card.tree-card.expended > .subQuesLine {
+    padding-bottom: 10px;
+}
+
+.mat-card.tree-card.expended > .subQuesLine > .subQuesText{
+    font-weight: 700;
+    font-size: 14px;
+    color: $primary;
+}
+
+.mat-card.tree-card.expended > .subQuesLine > .subQuesArrow .mat-icon {
+    color: $accent;
+}
+
+.mat-card.tree-card.expended .mat-card.tree-card {
+    margin-left: 35px;
+}
+
+.loader {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+    .subQuesText { 
+        font-size: 12px; 
+    }
+    .mat-card.tree-card.expended > .subQuesLine > .subQuesText{
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .subQuesText { 
+        font-size: 11px; 
+    }
+    .mat-card.tree-card.expended > .subQuesLine > .subQuesText{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .mat-card.tree-card {
+        padding: 6px 8px;
+    }
+    
+    .subQuesArrow .material-icons {
+        font-size: 20px;
+        line-height: 26px; 
+    }
+
+    .subQuesArrow {
+        margin-right: 0px;
+    }
+
+    .mat-card.tree-card.expended .mat-card.tree-card {
+        margin-left: 5px;
+    }
+}

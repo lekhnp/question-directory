@@ -1,0 +1,18 @@
+// Editor reference for pure-software application
+https://www.npmjs.com/package/@kolkov/angular-editor
+
+// Reference for generate unique id
+https://www.npmjs.com/package/uuid
+
+// Reference for pagination in angular
+https://www.npmjs.com/package/ngx-pagination
+
+// Reference of chart.js library
+https://www.npmjs.com/package/ng2-charts
+https://valor-software.com/ng2-charts/#/ScatterChart
+https://www.chartjs.org/docs/latest/charts/mixed.html
+https://chartjs-plugin-datalabels.netlify.com/guide/labels.html#dataset-overrides
+
+// Reference for Resizable box
+https://www.npmjs.com/package/angular-resizable-element
+https://mattlewis92.github.io/angular-resizable-element/demo/

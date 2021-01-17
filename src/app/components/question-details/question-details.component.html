@@ -1,0 +1,133 @@
+<div class="detail-container">
+
+    <div class="searchForm">
+        <mat-form-field class="selectCategory" color="accent" appearance="outline">
+            <!-- <mat-label>Search...</mat-label> -->
+            <mat-select placeholder="Select Category" [formControl]="categoryField" (selectionChange)="onCategoryChange($event.value)">
+                <mat-option [value]="''">
+                    Select Category 
+                </mat-option>
+                <mat-option *ngFor="let category of categoryList" [value]="category.CategoryId">
+                    {{category.CategoryName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="searchField" appearance="outline">
+            <!-- <mat-label>Search...</mat-label> -->
+            <input matInput placeholder="Search..." (keyup.enter)="search(searchField.value,categoryField.value)" [formControl]="searchField" [matAutocomplete]="autoSearch">
+            <mat-icon (click)="search(searchField.value,categoryField.value)" matSuffix>search</mat-icon>
+            <mat-autocomplete #autoSearch="matAutocomplete">
+                <ng-container *ngIf="!questionData">
+                    <mat-option><span class="trySearching">Try searching for:</span></mat-option>
+                    <mat-divider></mat-divider>
+                    <mat-option *ngFor="let item of ['Pure Software','Hiring','Policy','Reimbursement','Leave Policy']" 
+                    [value]="item" (click)="search(searchField.value,categoryField.value)">{{item}}</mat-option>
+                </ng-container>
+                <ng-container *ngIf="!isLoading">
+                    <mat-option *ngFor="let item of questionData"  (click)="viewDetail(searchField.value,'')" [value]="item">
+                        {{item.QuestionText}}
+                    </mat-option>
+                </ng-container>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+
+    <div class="mat-caption breadcrumbs" *ngIf="breadcrumbs" [@boxAnimation]>
+        <span class="bdNav">
+            <mat-icon (click)="goBackToHome()" class="iconNav" color="warn">home</mat-icon>
+            <mat-icon class="linkDivider">keyboard_arrow_right</mat-icon>
+        </span>
+        <span class="bdNav" *ngFor="let item of breadcrumbs;let navIndex = index">
+            <a class="linkNav" (click)="navigateLink(item,navIndex)" matTooltip="{{item.questionText}}">{{item.questionText | truncate:[20, '...']}}</a>
+            <mat-icon class="linkDivider">keyboard_arrow_right</mat-icon>
+        </span>
+        <span class="bdNav" matTooltip="{{documentData && documentData.QuestionText}}">
+            <span class="textNav">{{documentData && (documentData.QuestionText | truncate:[20, '...'])}}</span>
+        </span>
+    </div>
+
+    <div class="question-container" *ngIf="documentData" [@boxAnimation]>
+        <div class="question" *ngIf="documentData && documentData.QuestionText" [@boxAnimation]>
+            <div class="question-text">{{documentData && documentData.QuestionText}}</div>
+            <!-- Temp Hidden -->
+            <div class="question-button" *ngIf="user.role == 'admin' && false">
+                <button mat-raised-button color="accent" aria-label="Edit Question Button">
+                    Edit Question
+                </button>
+            </div>
+        </div>
+        <div [innerHTML]="documentData && documentData.Answer" class="answer-text" 
+            [@boxAnimation] *ngIf="documentData && documentData.Answer && documentData.Answer != ' '">
+            <!-- {{documentData && documentData.Answer}}  -->
+        </div>
+    </div>
+
+    <div class="sub-question-container" [@boxAnimation] *ngIf="false && ((documentData && !(documentData.RelatedQuestions.length <= 0)) || user.role == 'admin')">
+        <div class="sub-question">
+            <div class="sub-question-title">Sub Questions:</div>
+            <div class="question-button" *ngIf="user.role == 'admin'">
+                <button (click)="createSubQuestion()" mat-raised-button color="accent" aria-label="New Sub Question Button">
+                    New Sub Question
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="documentData && documentData.RelatedQuestions.length <= 0" [@boxAnimation] class="emptyCard">
+                <mat-card class="quick-action-card noHover">
+                    <div class="emptyText paddingTop20 paddingBottom20">
+                        <span>
+                            No sub questions associated with above question. <br><br>
+        
+                            You can create sub question by clicking on New Sub Question button above.
+    
+                        </span>
+                    </div>
+                </mat-card>
+        
+        </div>
+
+        <div class="workspace-grid" *ngIf="documentData && documentData.RelatedQuestions" [@boxAnimation]>
+            <div class="workspace-column" *ngFor="let ques of documentData.RelatedQuestions">
+                <mat-card class="quick-action-card quick-app-status" matRipple (click)="viewDetail(ques)">
+                    <mat-list class="sub-menu-list">
+                        <mat-list-item>
+                            <h3 class="sub-menu-title" mat-line>{{ques.QuestionText}}</h3>
+                            <p class="sub-menu-description" mat-line> {{ques.RelatedQuestions.length}} Sub Questions</p>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="tree-section" *ngIf="(documentData && !(documentData.RelatedQuestions.length <= 0)) || (documentData && user.role == 'admin')" [@boxAnimation]>
+        <mat-card class="quick-action-card noHover">
+            <div class="sub-question">
+                <div class="sub-question-title">Sub Questions:</div>
+                <div class="question-button" *ngIf="user.role == 'admin'">
+                    <button (click)="createSubQuestion()" mat-raised-button color="accent" aria-label="New Sub Question Button">
+                        New Sub Question
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="documentData && documentData.RelatedQuestions.length <= 0" class="emptyCard">
+                <mat-card class="quick-action-card noHover marginBottom0">
+                    <div class="emptyText">
+                        <span>
+                            No sub questions associated with above question. <br><br>
+        
+                            You can create sub question by clicking on New Sub Question button above.
+    
+                        </span>
+                    </div>
+                </mat-card> 
+            </div>
+            <div class="tree-container" *ngIf="documentData && documentData.RelatedQuestions.length > 0">
+                <app-question-tree-view [treeData]="documentData.RelatedQuestions"></app-question-tree-view>
+            </div>
+        </mat-card>
+    </div>
+
+    <app-was-helpful [currentQuestion]="documentData && documentData.QuestionText" [@boxAnimation] *ngIf="user.role == 'operator' && (documentData && documentData.Answer)"></app-was-helpful>
+
+</div>

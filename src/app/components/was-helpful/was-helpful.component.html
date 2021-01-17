@@ -1,0 +1,44 @@
+<div class="feedbackSection">
+    <mat-card class="wasHelpful">
+        <form autocomplete="off" novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="helpfulRow">
+                <div class="helpfulText">Was this helpful?</div>
+                <div class="ratingRadio">
+                    <mat-radio-group formControlName="Rating" (change)="sendFeedback()">
+                        <mat-radio-button value="0">
+                            <img src="assets/images/thumbs-up.png" alt="Thumbs Up Image">
+                            <div class="thumbText yes">Yes</div>
+                        </mat-radio-button> 
+                        <mat-radio-button value="1">
+                            <img src="assets/images/thumbs-down.png" alt="Thumbs Down Image">
+                            <div class="thumbText no">No</div>
+                        </mat-radio-button> 
+                    </mat-radio-group>         
+                </div>
+            </div>
+
+            <div class="commentArea" *ngIf="false && field.Rating.value == 1">
+                <div class="field">
+                    <mat-form-field appearance="outline">
+                        <mat-label>How we can improve?</mat-label>
+                        <textarea rows="1" formControlName="Comment" matInput placeholder="Type your comment..."></textarea>
+                    </mat-form-field>
+                </div>
+                <div>
+                        <button type="submit" [disabled]="form.invalid || submitted || !form.dirty" mat-raised-button color="primary" cdkFocusInitial>Submit</button>
+                </div>
+            </div>
+                
+        </form>
+    </mat-card>
+    <mat-card class="wasHelpful improvement">
+        <form autocomplete="off" novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="helpfulRow">
+                <div class="helpfulText">
+                    <mat-checkbox formControlName="isSuggestion" (change)="sendImprovement()">Have any suggestion to improve the Q&A content?</mat-checkbox>
+                </div>
+            </div>
+                
+        </form>
+    </mat-card>
+</div>

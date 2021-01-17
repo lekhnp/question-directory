@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Raise a Service Request</h1>
+<form autocomplete="off" novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content>
+        <div class="field">
+            <mat-form-field appearance="outline" [hideRequiredMarker]="false">
+                <mat-label>Issue</mat-label>
+                <textarea formControlName="issue" required matInput placeholder="Type your issue..."></textarea>
+                <mat-error *ngIf="hasError('issue', 'required')">Issue is mandatory.</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="field">
+            <mat-form-field appearance="outline" [hideRequiredMarker]="false">
+                <mat-label>Description</mat-label>
+                <textarea formControlName="description" required matInput placeholder="Type description..."></textarea>
+                <mat-error *ngIf="hasError('description', 'required')">Description is mandatory.</mat-error>
+            </mat-form-field>
+        </div>
+        
+        <div class="workspace-grid">
+            <div class="workspace-column">
+                <div class="field">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Priority</mat-label>
+                        <mat-select formControlName="priority">
+                            <mat-option *ngFor="let item of ['Highest', 'High', 'Medium', 'Low', 'Lowest']" [value]="item">
+                                {{item}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="workspace-column">
+                <div class="field">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Assign To</mat-label>
+                        <mat-select formControlName="assignTo">
+                            <mat-option *ngFor="let item of ['Avanish Raghav', 'Gaurav Kumar', 'Amritans Tejas', 'Ravi Kumar', 'Aditya Pandey', 'Arun Kumar']" [value]="item">
+                                {{item}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div mat-dialog-actions>
+    <div class="spacer"></div>
+    <button type="button" mat-raised-button color="primary" (click)="cancel()">Cancel</button> 
+    <button type="submit" [disabled]="form.invalid || submitted || !form.dirty" mat-raised-button color="accent" cdkFocusInitial>Submit</button>
+    </div>
+</form>

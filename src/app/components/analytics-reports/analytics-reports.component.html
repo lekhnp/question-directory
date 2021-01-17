@@ -1,0 +1,94 @@
+<div class="navContainer">
+    <div class="mat-caption breadcrumbs"> 
+        <span class="bdNav">
+            <mat-icon (click)="goBackToHome()" class="iconNav" color="warn">home</mat-icon>
+            <mat-icon class="linkDivider">keyboard_arrow_right</mat-icon>
+        </span>
+        <span class="bdNav">
+            <span class="textNav">Analytics & Reports</span>
+        </span>
+    </div>
+</div>
+
+<div class="tab-grid">
+    <div class="tab-column" [class.active-tab]="viewState == 'feedback'">
+        <mat-card class="quick-action-card" matRipple (click)="viewReport('feedback')">
+            <mat-list class="sub-menu-list">
+                <mat-list-item>
+                    <mat-icon class="sub-menu-icon" mat-list-icon>
+                        <img src="assets/images/feedback.svg" alt="Feedback Reports Icon">
+                    </mat-icon>
+                    <h3 class="sub-menu-title" mat-line>Feedback Reports</h3>
+                </mat-list-item>
+            </mat-list>
+        </mat-card>
+    </div>
+    <div class="tab-column" [class.active-tab]="viewState == 'serviceRequest'">
+        <mat-card class="quick-action-card" matRipple (click)="viewReport('serviceRequest')">
+            <mat-list class="sub-menu-list">
+                <mat-list-item>
+                    <mat-icon class="sub-menu-icon" mat-list-icon>
+                        <img src="assets/images/service-request.svg" alt="Service Request Reports Icon">
+                    </mat-icon>
+                    <h3 class="sub-menu-title" mat-line>Service Request Trends</h3>
+                </mat-list-item>
+            </mat-list>
+        </mat-card>
+    </div>
+    <div class="tab-column" [class.active-tab]="viewState == 'search'">
+        <mat-card class="quick-action-card" matRipple (click)="viewReport('search')">
+            <mat-list class="sub-menu-list">
+                <mat-list-item>
+                    <mat-icon class="sub-menu-icon" mat-list-icon>
+                        <img src="assets/images/search-analysis.svg" alt="Search Reports Icon">
+                    </mat-icon>
+                    <h3 class="sub-menu-title" mat-line>Search Trends</h3>
+                </mat-list-item>
+            </mat-list>
+        </mat-card>
+    </div>
+</div>
+
+<div class="workspace-grid feedbackView" *ngIf="viewState == 'feedback'" [@boxAnimation]>
+
+    <div class="workspace-column">
+        <app-overall-feedback-chart></app-overall-feedback-chart>
+    </div>
+
+    <div class="workspace-column">
+        <app-category-bise-feedback-charts></app-category-bise-feedback-charts>
+    </div>
+
+    <div class="workspace-column extended">
+        <app-daily-feedback-chart></app-daily-feedback-chart>
+    </div>
+
+    <div class="workspace-column extended">
+        <app-feedback-table></app-feedback-table>
+    </div>
+</div>
+
+<div class="workspace-grid" *ngIf="viewState == 'serviceRequest'" [@boxAnimation]>
+    <div class="workspace-column extended">
+        <app-daily-service-request-chart></app-daily-service-request-chart>
+    </div>
+
+    <div class="workspace-column extended">
+        <app-category-bise-service-request-chart></app-category-bise-service-request-chart>
+    </div>
+</div>
+
+<div class="workspace-grid" *ngIf="viewState == 'search'" [@boxAnimation]>
+    
+    <div class="workspace-column extended">
+        <app-text-search-chart></app-text-search-chart>
+    </div>
+    
+    <div class="workspace-column extended">
+        <app-question-search-chart></app-question-search-chart>
+    </div>
+    
+</div>
+
+
+      

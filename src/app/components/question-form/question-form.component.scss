@@ -1,0 +1,62 @@
+.mat-dialog-title {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+    padding: 10px 20px;
+} 
+.mat-dialog-content {
+    margin:0;
+    padding: 0 20px;
+    font-size: 13px;
+}
+.mat-dialog-actions {
+    margin: 0;
+    padding: 10px 20px 20px;
+}
+
+.mat-dialog-actions .mat-raised-button {
+    color: #ffffff;
+}
+.mat-dialog-actions .mat-raised-button[disabled] {
+    color: rgba(0,0,0,0.26);
+}
+
+.mat-form-field {
+    display: block;
+}
+
+.weightage {
+    width: 200px;
+}
+
+.field {
+    padding: 0 5px 10px;
+    width: 100%;
+    
+}
+
+.ck-editor-field .label {
+    font-size: 14px;
+    padding-bottom: 7px;
+}
+.ck-editor-field .mat-error {
+    font-size: 10px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.workspace-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.workspace-column {
+    flex: 50%;
+    max-width: 50%;
+    display: flex;
+}
+
+.keyword {
+    padding-top: 10px;
+}
